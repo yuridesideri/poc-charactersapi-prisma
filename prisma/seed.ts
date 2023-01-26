@@ -61,7 +61,7 @@ async function main() {
 			sex: "male",
 			image:
 				"https://media.vanityfair.com/photos/5dd70131e78810000883f587/4:3/w_1115,h_836,c_limit/baby-yoda-craze.jpg",
-			world: { connect: 
+			world_born: { connect: 
 				{ name: 'Unknown' } 
 			},
 			guild: {connectOrCreate: 

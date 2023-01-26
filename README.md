@@ -34,19 +34,29 @@ Start the server: ```npm run dev```
 ## Usage
 The API can be accessed at http://localhost:4000. (Default)
 
-In the Route: `POST /characters` - Creates a new character, it needs those fields:
+In the Route: `PUT /generate` - Creates/Updated (base in name) a new character and/or guild, it needs those fields:
 ```json
-
- {
-    "name": "The Child",
-    "race": "Tridactyls",
-    "description": "O baby Yoda, simplesmente o melhor personagem de todos os tempos",
-    "age": "900",
-    "height": "42",
-    "u_obj": "jedi_suite",
-    "sex": "male",
-    "image": "https://media.vanityfair.com/photos/5dd70131e78810000883f587/4:3/w_1115,h_836,c_limit/baby-yoda-craze.jpg" //optional
+{
+  "guild": { //optional
+    "id": 4, //optional
+    "name": "test guild 3.0", //unique
+    "description": "just a normal guild dsafds.0", //unique
+    "membersId":[10, 9, 5]
+  },
+  "character": { //optional
+      "id": 1, //optional
+			"name": "Grofdsafgu", //unique
+			"race": "Tridafdsactyls",
+			"description": //unique
+				"Lorem Ipsum", 
+			"age": 900,
+			"height": 42,
+			"u_obj": "jeafdadi_suite",
+			"sex": "male", //male|female|other
+			"world_born_id": 1,
+			"guild_id": 4 //optional
   }
+}
 ```
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
