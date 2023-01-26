@@ -1,0 +1,77 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// model Characters {
+//   id                                  Int     @id(map: "characters_pk") @default(autoincrement())
+//   name                                String  @db.VarChar(255)
+//   race                                String  @db.VarChar(255)
+//   description                         String
+//   age                                 Int
+//   height                              Int
+//   u_obj                               String  @unique @db.VarChar(255)
+//   sex                                 String  @db.VarChar(255)
+//   image                               String? @unique
+//   guild                               Int?    @unique
+//   world_born                          Int     @unique
+//   guilds_characters_guildToguilds     Guilds? @relation("characters_guildToguilds", fields: [guild], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "characters_fk0")
+//   worlds                              Worlds  @relation(fields: [world_born], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "characters_fk1")
+//   guilds_guilds_leaderIdTocharacters  Guilds? @relation("guilds_leaderIdTocharacters")
+//   guilds_guilds_members__Tocharacters Guilds? @relation("guilds_members__Tocharacters")
+// }
+
+model Characters {
+  id            Int     @id(map: "characters_pk") @default(autoincrement())
+  name          String  @unique @db.VarChar(255)
+  race          String  @db.VarChar(255)
+  description   String
+  age           Int
+  height        Int
+  u_obj         String  @unique @db.VarChar(255)
+  sex           String  @db.VarChar(255)
+  image         String? @unique
+  guild_id      Int?
+  guild         Guilds? @relation(fields: [guild_id], references: [id])
+  world_born_id Int     @unique
+  world         Worlds  @relation(fields: [world_born_id], references: [id])
+}
+
+model Guilds {
+  id          Int          @id(map: "guilds_pk") @default(autoincrement())
+  name        String       @unique
+  description String       @unique
+  members     Characters[]
+  guild_logo  String?      @unique
+}
+
+// model Guilds {
+//   id                                      Int         @id(map: "guilds_pk") @default(autoincrement())
+//   name                                    String      @unique
+//   description                             String      @unique
+//   leaderId                                Int         @unique
+//   members                                 Int[]       @unique @map("members[]")
+//   image                                   String?     @unique
+//   characters_characters_guildToguilds     Characters? @relation("characters_guildToguilds")
+//   characters_guilds_leaderIdTocharacters  Characters  @relation("guilds_leaderIdTocharacters", fields: [leaderId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "guilds_fk0")
+//   characters_guilds_members__Tocharacters Characters[]  @relation("guilds_members__Tocharacters", fields: [members], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "guilds_fk1")
+// }
+
+model Worlds {
+  id          Int          @id(map: "worlds_pk") @default(autoincrement())
+  name        WorldName    @unique
+  description String       @unique
+  image       String?      @unique
+  characters  Characters[]
+}
+
+enum WorldName {
+  Azeroth
+  Narnia
+  Pandaria
+  Unknown
+}

@@ -1,6 +1,6 @@
-# poc-characterapi-ts
+# poc-characterapi-prisma
 
-This is a simple proof of concept API written in TypeScript for managing characters.
+This is a simple proof of concept API written in TypeScript & Prisma for managing characters.
 
 ## Endpoints
   `GET /characters`: Retrieves a list of all characters
@@ -20,11 +20,15 @@ Install dependencies: ```npm install```
 
 Run Postgres
 
-Dump the database from `./dump/dump.sql`
+You must have node v16.19.0 (not higher nor lower) installed - prisma currently works best with this version
+
+Run `nvm use` to automatically switch node to the correct version
 
 Rename `.env.example` to `.env`
 
-Insert into `.env` your database string `ex: postgres://postgres:password@localhost:5432/database_name` and set your port `default is 4000`
+Insert into `.env` your database string `ex: postgres://user:password@host:5432/database_name` and your port `ex: 4000`
+
+Run `npm run prisma:init` to initialize the tables and seed the database, press `y` when prompted.
 
 Start the server: ```npm run dev```
 ## Usage

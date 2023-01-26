@@ -8,6 +8,7 @@ export interface Character {
     u_obj: string;
     sex: "male" | "female" | "other";
     image?: string;
+    world_born_id: number;
 }
 
 export interface CharacterFields {
@@ -20,4 +21,12 @@ export interface CharacterFields {
     u_obj?: string;
     sex?: "male" | "female" | "other";
     image?: string;
+    world_born?: number;
+}
+
+export interface World {
+    id?: number;
+    name: string;
+    description: string;
+    habitants: number;
 }
