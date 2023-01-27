@@ -32,4 +32,3 @@ export interface Guild {
     guild_logo?: string;
 }
 
-//tipar o input e não o database
