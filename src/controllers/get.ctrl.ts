@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import prisma from "../database/db.js";
-import { getCharactersFromDb } from "../repositories/character.repo.js";
 
 
 

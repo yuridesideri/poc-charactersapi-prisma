@@ -1,13 +1,16 @@
 import { Request, Response } from "express";
-import { removeCharacterFromDb } from "../repositories/character.repo.js";
+import prisma from "../database/db.js";
 
 
 export async function deleteCharacterCtrl(req: Request, res: Response){
     try {
-        const { id } = res.locals as {id: string};
-        await removeCharacterFromDb(id);
+        const { id: characterId } = res.locals as {id: number};
+        await prisma.characters.delete({
+            where: {
+                id: characterId
+            }
+        })
         res.sendStatus(200);
-
     }catch (err){
         console.error(err)
         res.status(400)
@@ -19,7 +22,13 @@ export async function deleteCharacterCtrl(req: Request, res: Response){
 
 export async function deleteGuildCtrl(req: Request, res: Response): Promise<void>{
     try {
-        
+        const { id: guildId } = res.locals as {id: number};
+        await prisma.guilds.delete({
+            where: {
+                id: guildId
+            }
+        })
+        res.sendStatus(200);
     }catch (err){
         console.error(err)
         res.status(400)
