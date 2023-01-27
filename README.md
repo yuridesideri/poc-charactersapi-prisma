@@ -44,17 +44,16 @@ In the Route: `PUT /generate` - Creates/Updated (base in name) a new character a
     "membersId":[10, 9, 5]
   },
   "character": { //optional
-      "id": 1, //optional
-			"name": "Grofdsafgu", //unique
-			"race": "Tridafdsactyls",
-			"description": //unique
-				"Lorem Ipsum", 
-			"age": 900,
-			"height": 42,
-			"u_obj": "jeafdadi_suite",
-			"sex": "male", //male|female|other
-			"world_born_id": 1,
-			"guild_id": 4 //optional
+      	"id": 1, //optional
+	"name": "Grofdsafgu", //unique
+	"race": "Tridafdsactyls",
+	"description": "Lorem Ipsum", //unique 
+	"age": 900,
+	"height": 42,
+	"u_obj": "jeafdadi_suite",
+	"sex": "male", //male|female|other
+	"world_born_id": 1,
+	"guild_id": 4 //optional
   }
 }
 ```
