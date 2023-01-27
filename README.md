@@ -3,15 +3,16 @@
 This is a simple proof of concept API written in TypeScript & Prisma for managing characters.
 
 ## Endpoints
-  `GET /characters`: Retrieves a list of all characters
-  
-  `GET /characters/:id`: Retrieves a specific character by ID
-  
-  `POST /characters`: Creates a new character
-  
-  `PUT /characters/:id`: Updates an existing character
-  
-  `DELETE /characters/:id`: Deletes a character
+<ul>
+	<li><code>PUT /generate</code>: Creates or updates a character</li>
+	<li><code>GET /worlds/:id?</code>: Retrieves a specific world by its id or all worlds if id is not specified </li>
+	<li> <code>GET /guilds/:id?</code>: Retrieves a specific guild by its id or all guilds if id is not specified</li>
+	<li><code>GET /characters/:id?</code>: Retrieves a specific character by its id or all characters if id is not specified </li>
+	<li><code>DELETE /character/:id</code>: Deletes a specific character by its id </li>
+	<li><code>DELETE /guild/:id</code>: Deletes a specific guild by its id </li>
+</ul>
+
+
   
 ## Installation
 Clone the repository: ```git clone https://github.com/yuridesideri/poc-characterapi-ts.git```
